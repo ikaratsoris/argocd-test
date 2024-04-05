@@ -3,21 +3,18 @@ kind: Application
 metadata:
   name: cicd-app-of-apps
 spec:
-  generators:
-  - list:
-      elements:
-      - cluster: cicd
-        url: https://kubernetes.default.svc
-  template:
-    spec:
-      project: cicd
-      source:
-        repoURL: https://github.com/ikaratsoris/argocd-test
-        targetRevision: HEAD
-        path: cicd-cluster/apps
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-        - CreateNamespace=true
+  destination:
+    name: ''
+    namespace: 'default'
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    repoURL: https://github.com/ikaratsoris/argocd-test
+    targetRevision: HEAD
+    path: cicd-cluster/apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
