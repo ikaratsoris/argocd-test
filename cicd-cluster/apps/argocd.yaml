@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: cicd
+  source:
+    repoURL: https://github.com/ikaratsoris/argocd-test.git
+    targetRevision: HEAD
+    path: cicd-cluster/apps/argocd
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
