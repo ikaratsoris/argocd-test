@@ -6,7 +6,7 @@ metadata:
 spec:
   project: cicd
   source:
-    repoURL: https://github.com/ikaratsoris/argocd-test.git
+    repoURL: https://github.com/ikaratsoris/argocd-test
     targetRevision: HEAD
     path: cicd-cluster/apps/argocd
     helm:
