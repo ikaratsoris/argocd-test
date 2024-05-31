@@ -1,7 +1,7 @@
 ---
 
 global:
-  domain: localhost
+  domain: testdomain.test
 
 server:
   ingress:
