@@ -13,3 +13,4 @@ server:
     tls: true
 
   invalidValue: true
+  invalidValueNew: false
